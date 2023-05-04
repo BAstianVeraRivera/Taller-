@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 public class VentanaModificarCafe extends Ventana implements ActionListener {
     private JLabel lblNombreCafe, lblGramosCafe, lblMililitros, lblTamaño, lblIngredientesOpcionales;
     private JTextField txtNombreCafe, txtGramosCafe, txtMililitros, txtTamaño, txtIngredientesOpcionales;
-    private JButton btnRegistrar, btnCancelar;
+    private JButton btnModificar, btnCancelar;
     private JPanel panel;
     private GestorDatos gestor;
 
@@ -35,7 +35,7 @@ public class VentanaModificarCafe extends Ventana implements ActionListener {
         txtMililitros = new JTextField(15);
         txtTamaño = new JTextField(15);
         txtIngredientesOpcionales = new JTextField(15);
-        btnRegistrar = new JButton("Agregar Café");
+        btnModificar = new JButton("Agregar Café");
         btnCancelar = new JButton("Cancelar");
         panel = new JPanel();
         panel.setLayout(new GridLayout(7, 2));
@@ -52,19 +52,19 @@ public class VentanaModificarCafe extends Ventana implements ActionListener {
         panel.add(txtTamaño);
         panel.add(lblIngredientesOpcionales);
         panel.add(txtIngredientesOpcionales);
-        panel.add(btnRegistrar);
+        panel.add(btnModificar);
         panel.add(btnCancelar);
 
         add(panel);
     }
 
     private void agregarEventos() {
-        btnRegistrar.addActionListener(this);
+        btnModificar.addActionListener(this);
         btnCancelar.addActionListener(this);
     }
 
     public void actionPerformed(ActionEvent accion) {
-        if (accion.getSource() == btnRegistrar) {
+        if (accion.getSource() == btnModificar) {
             String nombre = txtNombreCafe.getText();
             int gramosCafe = Integer.parseInt(txtGramosCafe.getText());
             int mililitros = Integer.parseInt(txtMililitros.getText());
