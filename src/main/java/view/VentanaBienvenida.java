@@ -6,7 +6,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class VentanaBienvenida extends Ventana implements ActionListener {
-    private JButton btnAgregarCafe, btnBuscarCafe, btnSalir, btnEliminarCafe;
+    private JButton btnAgregarCafe, btnBuscarCafe, btnSalir, btnEliminarCafe, btnModificar;
     private JPanel panel;
     private GestorDatos gestor;
 
@@ -24,6 +24,7 @@ public class VentanaBienvenida extends Ventana implements ActionListener {
         btnAgregarCafe = new JButton("Agregar café");
         btnBuscarCafe = new JButton("Buscar café por tamaño");
         btnEliminarCafe = new JButton("Eliminar café");
+        btnModificar = new JButton("Modificar información");
         btnSalir = new JButton("Salir");
         panel = new JPanel();
         panel.setLayout(new GridLayout(4, 1));
@@ -33,6 +34,7 @@ public class VentanaBienvenida extends Ventana implements ActionListener {
         panel.add(btnAgregarCafe);
         panel.add(btnBuscarCafe);
         panel.add(btnEliminarCafe);
+        panel.add(btnModificar);
         panel.add(btnSalir);
 
         add(panel);
@@ -42,6 +44,7 @@ public class VentanaBienvenida extends Ventana implements ActionListener {
         btnAgregarCafe.addActionListener(this);
         btnBuscarCafe.addActionListener(this);
         btnEliminarCafe.addActionListener(this);
+        btnModificar.addActionListener(this);
         btnSalir.addActionListener(this);
     }
 
@@ -51,10 +54,10 @@ public class VentanaBienvenida extends Ventana implements ActionListener {
             new VentanaAgregarCafe("Agregar Café", 500, 300, gestor);
         } else if (accion.getSource() == btnBuscarCafe) {
             dispose();
-            new VentanaBuscarCafe("Buscar Café",500,300, gestor);
+            new VentanaBuscarCafe("Buscar Café o modificar información",500,300, gestor);
         } else if (accion.getSource() == btnEliminarCafe) {
             dispose();
-            new VentanaEliminarCafe("Eliminar Café",500,300, gestor);
+            new VentanaEliminarCafe("Eliminar Café", 500, 300, gestor);
         } else if (accion.getSource() == btnSalir) {
             System.exit(0);
         }

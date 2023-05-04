@@ -46,7 +46,7 @@ public class GestorDatos {
             String linea;
             while ((linea = br.readLine()) != null) {
                 String[] datos = linea.split(",");
-                if (datos[0].equals(tamaño)) {
+                if (datos[3].equals(tamaño)) {
                     br.close();
                     fr.close();
                     return new Cafe(datos[0], Integer.parseInt(datos[1]), Integer.parseInt(datos[2]), datos[3], datos[4]);
