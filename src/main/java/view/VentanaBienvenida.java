@@ -27,7 +27,7 @@ public class VentanaBienvenida extends Ventana implements ActionListener {
         btnModificar = new JButton("Modificar información");
         btnSalir = new JButton("Salir");
         panel = new JPanel();
-        panel.setLayout(new GridLayout(4, 1));
+        panel.setLayout(new GridLayout(5, 1));
     }
 
     private void agregarComponentes() {
@@ -58,6 +58,9 @@ public class VentanaBienvenida extends Ventana implements ActionListener {
         } else if (accion.getSource() == btnEliminarCafe) {
             dispose();
             new VentanaEliminarCafe("Eliminar Café", 500, 300, gestor);
+        } else if (accion.getSource()==btnModificar) {
+            dispose();
+            new VentanaModificarCafe("Modificar Informacion", 500,300,gestor);
         } else if (accion.getSource() == btnSalir) {
             System.exit(0);
         }

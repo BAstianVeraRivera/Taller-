@@ -49,9 +49,10 @@ public class VentanaEliminarCafe extends Ventana implements ActionListener {
             String tamaño = txtNombreCafe.getText();
             Cafe cafe = gestor.buscarCafePorTamaño(tamaño);
             if (cafe != null) {
-                JOptionPane.showMessageDialog(this, "Café encontrado: " +cafe.toString());
+                JOptionPane.showMessageDialog(this, "Café encontrado y eliminado" +cafe.toString());
+                gestor.eliminarCafe(tamaño);
             } else {
-                JOptionPane.showMessageDialog(this, "No se encontró el vehiculo");
+                JOptionPane.showMessageDialog(this, "No se encontró el café");
             }
         } else if (e.getSource() == btnCancelar) {
             dispose();

@@ -45,8 +45,8 @@ public class VentanaBuscarCafe extends Ventana implements ActionListener {
         btnCancelar.addActionListener(this);
     }
 
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == btnBuscar) {
+    public void actionPerformed(ActionEvent accion) {
+        if (accion.getSource() == btnBuscar) {
             String tamaño = txtTamañoCafe.getText();
             Cafe cafe = gestor.buscarCafePorTamaño(tamaño);
             if (cafe != null) {
@@ -55,7 +55,7 @@ public class VentanaBuscarCafe extends Ventana implements ActionListener {
                 JOptionPane.showMessageDialog(this, "No se encontraron cafés tamaño " + tamaño);
             }
         }
-         else if (e.getSource() == btnCancelar) {
+         else if (accion.getSource() == btnCancelar) {
             dispose();
             new VentanaBienvenida("Cafetería BASTIAN", 500, 300, gestor);
         }

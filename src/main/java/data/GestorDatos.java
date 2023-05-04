@@ -59,6 +59,26 @@ public class GestorDatos {
         }
         return null;
     }
+    public Cafe buscarCafePorNombre(String nombre) {
+        try {
+            FileReader fr = new FileReader(archivoCafe);
+            BufferedReader br = new BufferedReader(fr);
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] datos = linea.split(",");
+                if (datos[3].equals(nombre)) {
+                    br.close();
+                    fr.close();
+                    return new Cafe(datos[0], Integer.parseInt(datos[1]), Integer.parseInt(datos[2]), datos[3], datos[4]);
+                }
+            }
+            br.close();
+            fr.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
     public Cafe eliminarCafe(String nombre) {
         try {
             FileReader fr = new FileReader(archivoCafe);
